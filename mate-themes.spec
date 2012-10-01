@@ -1,11 +1,11 @@
 Summary:	Themes for MATE
 Name:		mate-themes
-Version:	1.2.2
+Version:	1.4.0
 Release:	1
 License:	LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://mate-desktop.org
-Source0:	http://pub.mate-desktop.org/releases/1.2/%{name}-%{version}.tar.xz
+Source0:	http://pub.mate-desktop.org/releases/1.4/%{name}-%{version}.tar.xz
 BuildArch: noarch
 
 BuildRequires:	intltool
@@ -104,5 +104,5 @@ fi
 %{_datadir}/themes/TraditionalOk/index.theme
 %{_datadir}/themes/TraditionalOk/metacity-1/metacity-theme-1.xml
 %{_datadir}/themes/TraditionalOkClassic/gtk-2.0/gtkrc
+%{_datadir}/themes/TraditionalOkClassic/gtk-3.0
 %{_datadir}/themes/TraditionalOkClassic/metacity-1/metacity-theme-1.xml
-
