@@ -106,3 +106,11 @@ fi
 %{_datadir}/themes/TraditionalOkClassic/gtk-2.0/gtkrc
 %{_datadir}/themes/TraditionalOkClassic/gtk-3.0
 %{_datadir}/themes/TraditionalOkClassic/metacity-1/metacity-theme-1.xml
+
+
+
+%changelog
+* Sun Jun 03 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.2.2-1
++ Revision: 802074
+- imported package mate-themes
+
