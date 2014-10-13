@@ -2,7 +2,7 @@
 
 Summary:	Themes for MATE
 Name:		mate-themes
-Version:	1.8.0
+Version:	1.8.1
 Release:	1
 License:	LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -22,10 +22,9 @@ This packages contains Themes for MATE.
 
 %prep
 %setup -q
-NOCONFIGURE=yes ./autogen.sh
 
 %build
-%configure2_5x \
+%configure \
 	--build=%{_host}
 
 %make
