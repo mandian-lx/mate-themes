@@ -3,7 +3,7 @@
 Summary:	Themes for MATE
 Name:		mate-themes
 Version:	1.8.1
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
