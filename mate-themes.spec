@@ -34,7 +34,7 @@ This packages contains Themes for MATE.
 %makeinstall_std
 
 # locales
-%find_lang %{name} --with-gnome --all-name
+#%find_lang %{name} --with-gnome --all-name
 
 for t in ContrastHigh-SVG ContrastHighLargePrint ContrastHighLargePrintInverse Fog Quid; do
 	touch %{buildroot}%{_iconsdir}/$t/icon-theme.cache
@@ -58,7 +58,8 @@ if [ $1 -eq 0 ] ; then
 	done
 fi
 
-%files -f %{name}.lang
+%files
+# -f %{name}.lang
 %doc README NEWS AUTHORS 
 %{_iconsdir}/ContrastHigh-SVG/*
 %{_iconsdir}/ContrastHigh/index.theme
