@@ -2,12 +2,13 @@
 
 Summary:	Themes for MATE
 Name:		mate-themes
-Version:	1.8.1
-Release:	2
-License:	LGPLv2+
+Version:	3.22.9
+Release:	1
+License:	LGPLv2+ and GPLv2+ and GPLv3+
 Group:		Graphical desktop/GNOME
-Url:		http://mate-desktop.org
-Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://mate-desktop.org
+Source0:	https://pub.mate-desktop.org/releases/themes/%{url_ver}/%{name}-%{version}.tar.xz
+
 BuildArch:	noarch
 BuildRequires:	intltool
 BuildRequires:	icon-naming-utils
@@ -24,15 +25,16 @@ This packages contains Themes for MATE.
 %setup -q
 
 %build
+#NOCONFIGURE=yes ./autogen.sh
 %configure \
 	--build=%{_host}
-
 %make
 
 %install
 %makeinstall_std
 
-%find_lang %{name}
+# locales
+%find_lang %{name} --with-gnome --all-name
 
 for t in ContrastHigh-SVG ContrastHighLargePrint ContrastHighLargePrintInverse Fog Quid; do
 	touch %{buildroot}%{_iconsdir}/$t/icon-theme.cache
