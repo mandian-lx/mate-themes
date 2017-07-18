@@ -8,57 +8,28 @@ License:	LGPLv2+ and GPLv2+ and GPLv3+
 Group:		Graphical desktop/GNOME
 Url:		https://mate-desktop.org
 Source0:	https://pub.mate-desktop.org/releases/themes/%{url_ver}/%{name}-%{version}.tar.xz
-
 BuildArch:	noarch
+
 BuildRequires:	intltool
 BuildRequires:	icon-naming-utils
 BuildRequires:	mate-common
 BuildRequires:	pkgconfig(gtk-engines-2)
+
 Requires:	gtk-engines2
 Requires:	mate-icon-theme
 Requires:	murrine
 
 %description
-This packages contains Themes for MATE.
+The MATE Desktop Environment is the continuation of GNOME 2. It provides an
+intuitive and attractive desktop environment using traditional metaphors for
+Linux and other Unix-like operating systems.
 
-%prep
-%setup -q
+MATE is under active development to add support for new technologies while
+preserving a traditional desktop experience.
 
-%build
-#NOCONFIGURE=yes ./autogen.sh
-%configure
-%make
-
-%install
-%makeinstall_std
-
-for t in ContrastHigh; do
-	touch %{buildroot}%{_iconsdir}/$t/icon-theme.cache
-done
-
-# locales
-#%find_lang %{name} --with-gnome --all-name
-
-%post
-for t in ContrastHigh; do
-	touch --no-create %{_iconsdir}/$t &>/dev/null || :
-done
-
-%posttrans
-for t in ContrastHigh; do
-	gtk-update-icon-cache %{_iconsdir}/$t &>/dev/null || :
-done
-
-%postun
-if [ $1 -eq 0 ] ; then
-	for t in ContrastHigh; do
-		touch --no-create %{_iconsdir}/$t &>/dev/null || :
-		gtk-update-icon-cache %{_iconsdir}/$t &>/dev/null || :
-	done
-fi
+This packages provides Themes for MATE.
 
 %files
-# -f %{name}.lang
 %doc README NEWS AUTHORS
 %{_iconsdir}/mate/cursors/*
 # BlackMATE
@@ -160,4 +131,39 @@ fi
 %{_datadir}/themes/TraditionalOk/openbox-3
 %{_datadir}/themes/TraditionalOk/xfwm4
 %doc %{_datadir}/themes/TraditionalOk/COPYING
+
+#---------------------------------------------------------------------------
+
+%prep
+%setup -q
+
+%build
+#NOCONFIGURE=yes ./autogen.sh
+%configure
+%make
+
+%install
+%makeinstall_std
+
+for t in ContrastHigh; do
+	touch %{buildroot}%{_iconsdir}/$t/icon-theme.cache
+done
+
+%post
+for t in ContrastHigh; do
+	touch --no-create %{_iconsdir}/$t &>/dev/null || :
+done
+
+%posttrans
+for t in ContrastHigh; do
+	gtk-update-icon-cache %{_iconsdir}/$t &>/dev/null || :
+done
+
+%postun
+if [ $1 -eq 0 ] ; then
+	for t in ContrastHigh; do
+		touch --no-create %{_iconsdir}/$t &>/dev/null || :
+		gtk-update-icon-cache %{_iconsdir}/$t &>/dev/null || :
+	done
+fi
 
